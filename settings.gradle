@@ -12,6 +12,23 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        libs {
+            version('kotlin', '1.9.0')
+            version('agp', '8.2.0')
+            version('core-ktx', '1.12.0')
+            version('appcompat', '1.6.1')
+            version('material', '1.11.0')
+            version('constraintlayout', '2.1.4')
+            
+            library('android-gradle', 'com.android.tools.build:gradle:8.2.0')
+            library('kotlin-gradle', 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0')
+            library('core-ktx', 'androidx.core:core-ktx:1.12.0')
+            library('appcompat', 'androidx.appcompat:appcompat:1.6.1')
+            library('material', 'com.google.android.material:material:1.11.0')
+            library('constraintlayout', 'androidx.constraintlayout:constraintlayout:2.1.4')
+        }
+    }
 }
 
 rootProject.name = "AccessibilityApp"
