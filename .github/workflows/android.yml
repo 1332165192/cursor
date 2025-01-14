@@ -29,11 +29,17 @@ jobs:
     - name: Clean project
       run: ./gradlew clean
 
+    - name: Show Gradle version
+      run: ./gradlew --version
+
+    - name: Show dependency insight
+      run: ./gradlew :app:dependencies
+
     - name: Build with Gradle
-      run: ./gradlew build --info
+      run: ./gradlew build --stacktrace --info
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug --info
+      run: ./gradlew assembleDebug --stacktrace --info
 
     - name: List build outputs
       run: ls -R app/build/outputs
@@ -46,7 +52,7 @@ jobs:
         if-no-files-found: error
 
     - name: Build Release APK
-      run: ./gradlew assembleRelease --info
+      run: ./gradlew assembleRelease --stacktrace --info
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
         SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
